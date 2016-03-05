@@ -1,0 +1,27 @@
+module liga_desliga(
+	input pulso,
+	output ligado 
+);
+	
+	assign ligado = pulso; //atribui o valor do Registrador ao Fio
+
+endmodule
+
+module liga_desliga;
+	reg pulso; // guarda a entrada no registrador
+	wire ligado; // saida
+
+	Value inicio(pulso, ligado);	
+	always #1 pulso = ~pulso;// a cada um segundo o registrador vai receber o valor do registrador negado
+
+	initial begin 
+		$dumpvars(0,inicio); // 
+		#0
+		pulso <= 1;
+		#20;
+		$finish;
+	end
+
+endmodule
+
+
