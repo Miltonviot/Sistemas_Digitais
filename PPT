@@ -1,0 +1,75 @@
+module PPT(
+	input [2:0] J1,
+	input [2:0] J2,
+	output [2:0] S1
+	);
+	
+	reg [2:0] r_S1;
+	
+	assign S1 = r_S1;
+
+	always @(J1, J2) begin
+		case(J1)
+		0:
+			case(J2)
+			0: r_S1 <= 0;
+			1: r_S1 <= 2;
+			2: r_S1 <= 1;
+			endcase
+		1:
+			case(J2)
+			0: r_S1 <= 1;
+			1: r_S1 <= 0;
+			2: r_S1 <= 2;
+			endcase
+		2:
+			case(J2)
+			0: r_S1 <= 2;
+			1: r_S1 <= 1;
+			2: r_S1 <= 0;
+			endcase
+
+		endcase
+	end
+endmodule
+
+module test;
+	reg [2:0] J1;
+	reg [2:0] J2;
+
+	wire [2:0] S1;
+
+	PPT A(J1,J2,S1);
+	
+	initial begin
+	$dumpvars(0, A);
+	#10;
+	J1 <= 0;
+	J2 <= 0;
+	#20;
+	J2 <= 0;
+	#30;
+	J2 <= 1;
+	#40;
+	J2 <= 2;
+	#50;
+	J2 <= 0;
+	#60;
+	J1 <= 1;
+	#70;
+	J2 <= 1;
+	#80;
+	J2 <= 2;
+	#90;
+	J2 <= 0;
+	#100;
+	J1 <= 2;
+	#110;
+	J2 <= 1;
+	#120;
+	J2 <= 2;
+	#500
+	$finish;
+	end
+
+endmodule
