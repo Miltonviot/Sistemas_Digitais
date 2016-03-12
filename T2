@@ -1,0 +1,43 @@
+module Liga (
+    input clk_50,
+    output led
+
+    );
+
+    reg state = 0;
+    reg [32:0]cont = 0;
+
+    assign led = state;
+
+    always @(posedge clk_50) begin
+
+        if (cont == 5) begin
+        state <= ~state;
+        cont <=0;
+        end else begin
+            cont <= cont +1;
+            end
+    end
+
+
+
+endmodule
+
+module teste;
+
+ reg clk_50;
+  wire led;
+
+Liga A(clk_50,led);
+
+always #1 clk_50 <= ~ clk_50;
+
+    initial begin
+
+    $dumpvars(0,A);
+        #0;
+        clk_50 <=0;
+        #50;
+        $finish;
+    end
+endmodule
