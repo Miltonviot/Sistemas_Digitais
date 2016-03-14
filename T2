@@ -11,7 +11,7 @@ module Liga (
 
     always @(posedge clk_50) begin
 
-        if (cont == 5) begin
+        if (cont == 50000000) begin
         state <= ~state;
         cont <=0;
         end else begin
