@@ -12,10 +12,10 @@ module liga_desliga;
 	wire ligado; // saida
 
 	Value inicio(pulso, ligado);	
-	always #1 pulso = ~pulso;// a cada um segundo o registrador vai receber o valor do registrador negado
+	always #1 pulso = ~pulso;// a cada uma instancia de tempo o registrador vai receber o valor do registrador negado
 
 	initial begin 
-		$dumpvars(0,inicio); // 
+		$dumpvars(0,inicio); // só pra rodar o testbench no GTK
 		#0
 		pulso <= 1;
 		#20;
