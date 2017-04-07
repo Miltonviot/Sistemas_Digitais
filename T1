@@ -15,7 +15,7 @@ module liga_desliga;
 	always #1 pulso = ~pulso;// a cada uma instancia de tempo o registrador vai receber o valor do registrador negado
 
 	initial begin 
-		$dumpvars(0,inicio); // só pra rodar o testbench no GTK
+		$dumpvars; // só pra rodar o testbench no GTK
 		#0
 		pulso <= 1;
 		#20;
