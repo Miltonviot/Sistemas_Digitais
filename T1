@@ -12,5 +12,5 @@ module Test;
 	wire ligado; // saida
 
 liga_desliga Teste(pulso, ligado);	
-	always #1 pulso = ~pulso;// a cada uma instancia de tempo o registrador vai receber o valor do registrador negado
+	always #3 pulso = ~pulso;// a cada uma instancia de tempo o registrador vai receber o valor do registrador negado
 endmodule
