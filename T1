@@ -3,18 +3,14 @@ module liga_desliga(
 	output ligado 
 );
 	
-	assign pulso = ligado; //atribui o valor do Registrador ao Fio
+	assign ligado = pulso; //atribui o valor do Registrador ao Fio
 
 endmodule
 
-module liga_desliga;
+module Test;
 	reg pulso; // guarda a entrada no registrador
 	wire ligado; // saida
 
-	Value inicio(pulso, ligado);	
+liga_desliga Teste(pulso, ligado);	
 	always #1 pulso = ~pulso;// a cada uma instancia de tempo o registrador vai receber o valor do registrador negado
-
-
 endmodule
-
-
