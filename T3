@@ -20,10 +20,7 @@ int sign (struct fPoint pt, struct fPoint p1, struct fPoint p2)
     b2 = sign(pt, v2, v3);//< 0.0f;  
     b3 = sign(pt, v3, v1);//< 0.0f;
 
-   // printf("\n b1 > %f",b1 );
-   // printf("\n b2 > %f",b2 );
-   // printf("\n b3 > %f",b3 );
-    
+ 
      if(b1 <= 0){
     	b1=1;
     }
