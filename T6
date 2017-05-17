@@ -30,7 +30,7 @@ module sinal (
 
     assign Subtracao1 = PontoTX - Ponto2Y;
     assign Subtracao2 = Ponto1Y - Ponto2Y;
-    assign Subtracao3 = Ponto1Y - Ponto2X;
+    assign Subtracao3 = Ponto1X - Ponto2X;
     assign Subtracao4 = PontoTY - Ponto2Y;
 
     assign Multiplicacao1 = Subtracao1 * Subtracao2;
